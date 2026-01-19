@@ -101,7 +101,6 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->get('order/details/(:num)', 'Order::getOrderDetailsById/$1');
         $routes->get('order/(:num)', 'Order::getOrderByCustomerId/$1');
         $routes->get('page/(:num)', 'Page::getPageById/$1');
-        // $routes->add('product', 'Product::productList');
     });
 });
 
