@@ -1,0 +1,45 @@
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Page</h3>
+        <button onclick="closeConfig()" class="btn btn-outline-secondary float-right"><i class="fas fa-times"></i></button>
+    </div>
+    <form id="addWithDropZoneForm" type="post" action="<?php echo $adminBaseUrl . '/' . $controllerName . '/save'; ?>" novalidate="novalidate">
+        <div class="card-body">
+            <div class="form-group">
+                <label for="name" class="">Name</label>
+                <input name="name" id="name" placeholder="Name" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="url_mask" class="">Url Mask</label>
+                <input name="url_mask" id="url_mask" placeholder="url-mask" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="seo_title" class="">SEO Title</label>
+                <input name="seo_title" id="seo_title" placeholder="SEO Title" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="seo_keywords" class="">SEO Keywords</label>
+                <input name="seo_keywords" id="seo_keywords" placeholder="SEO Keywords" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="seo_description" class="">SEO Description</label>
+                <textarea name="seo_description" id="seo_description" class="form-control" required></textarea>
+            </div>
+            <div class="form-check">
+                <input name="headfoot" id="headfoot" type="checkbox" checked class="form-check-input">
+                <label for="headfoot" class="form-check-label">Include Header & Footer</label>
+            </div>
+            <div class="form-group">
+                <label for="content" class="">Description</label>
+                <textarea name="content" id="content" class="form-control"></textarea>
+            </div>
+            <div class="form-check">
+                <input name="status" id="status" type="checkbox" checked class="form-check-input">
+                <label for="status" class="form-check-label">Publish</label>
+            </div>
+        </div>
+        <div class="card-footer">
+            <button type="submit" id="addWithDropzone" class="mt-1 btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
