@@ -24,32 +24,85 @@ class Database extends Config
      *
      * @var array<string, mixed>
      */
-    public array $default = [
-        'DSN'          => '',
-        'hostname'     => '127.0.0.1',
-        'username'     => 'root',
-        'password'     => '',
-        'database'     => 'ecommerce_db',
-        'DBDriver'     => 'MySQLi',
-        'DBPrefix'     => 'ecomm_',
-        'pConnect'     => false,
-        'DBDebug'      => true,
-        'charset'      => 'utf8mb4',
-        'DBCollat'     => 'utf8mb4_general_ci',
-        'swapPre'      => '',
-        'encrypt'      => false,
-        'compress'     => false,
-        'strictOn'     => false,
-        'failover'     => [],
-        'port'         => 3306,
-        'numberNative' => false,
-        'foundRows'    => false,
-        'dateFormat'   => [
-            'date'     => 'Y-m-d',
-            'datetime' => 'Y-m-d H:i:s',
-            'time'     => 'H:i:s',
-        ],
-    ];
+
+    public array $default = [];
+
+    public function __construct()
+    {
+        switch (ENVIRONMENT) {
+            case 'development':
+                $this->default = [
+                    'DSN'          => '',
+                    'hostname'     => '127.0.0.1',
+                    'username'     => 'root',
+                    'password'     => '',
+                    'database'     => 'ecommerce_db',
+                    'DBDriver'     => 'MySQLi',
+                    'DBPrefix'     => 'ecomm_',
+                    'pConnect'     => false,
+                    'DBDebug'      => true,
+                    'charset'      => 'utf8mb4',
+                    'DBCollat'     => 'utf8mb4_general_ci',
+                    'swapPre'      => '',
+                    'encrypt'      => false,
+                    'compress'     => false,
+                    'strictOn'     => false,
+                    'failover'     => [],
+                    'port'         => 3306,
+                    'numberNative' => false,
+                    'foundRows'    => false,
+                    'dateFormat'   => [
+                        'date'     => 'Y-m-d',
+                        'datetime' => 'Y-m-d H:i:s',
+                        'time'     => 'H:i:s',
+                    ],
+                ];
+                break;
+
+            case 'staging':
+                $this->default = [
+                    'DSN'      => '',
+                    'hostname' => 'staging-db.fastafresh.com',
+                    'username' => 'staging_user',
+                    'password' => 'staging_pass',
+                    'database' => 'fastafresh_staging',
+                    'DBDriver' => 'MySQLi',
+                    'DBDebug'  => true,
+                ];
+                break;
+
+            case 'production':
+            default:
+                $this->default = [
+                    'DSN'          => '',
+                    'hostname'     => '127.0.0.1',
+                    'username'     => 'fastafre_db_user',
+                    'password'     => '3!TshMuvpXk@',
+                    'database'     => 'fastafre_ecomm_db',
+                    'DBDriver'     => 'MySQLi',
+                    'DBPrefix'     => 'ecomm_',
+                    'pConnect'     => false,
+                    'DBDebug'      => true,
+                    'charset'      => 'utf8mb4',
+                    'DBCollat'     => 'utf8mb4_general_ci',
+                    'swapPre'      => '',
+                    'encrypt'      => false,
+                    'compress'     => false,
+                    'strictOn'     => false,
+                    'failover'     => [],
+                    'port'         => 3306,
+                    'numberNative' => false,
+                    'foundRows'    => false,
+                    'dateFormat'   => [
+                        'date'     => 'Y-m-d',
+                        'datetime' => 'Y-m-d H:i:s',
+                        'time'     => 'H:i:s',
+                    ],
+                ];
+                break;
+        }
+    }
+
 
     //    /**
     //     * Sample database connection for SQLite3.

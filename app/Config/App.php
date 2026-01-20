@@ -16,7 +16,25 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = 'http://localhost:8080/';
+    public string $baseURL = '';
+
+    public function __construct()
+    {
+        switch (ENVIRONMENT) {
+            case 'development':
+                $this->baseURL = 'http://localhost:8080/';
+                break;
+
+            case 'staging':
+                $this->baseURL = 'https://staging.fastafresh.com/';
+                break;
+
+            case 'production':
+            default:
+                $this->baseURL = 'https://fastafresh.com/';
+                break;
+        }
+    }
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
