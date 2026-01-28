@@ -2,23 +2,23 @@
 
 namespace App\Controllers\Admin;
 
-use App\Libraries\UserLib;
+use App\Libraries\CustomerLib;
 
 class Customer extends AdminBaseController
 {
-    private $userLib;
+    private $customerLib;
     private $pageHeading;
-    
+
     function __construct()
     {
         $this->pageHeading = "Customers";
-        $this->userLib = new UserLib();
+        $this->customerLib = new CustomerLib();
     }
 
     public function index()
     {
         if ($this->data['userInfo']) {
-            $this->data["allUsers"] = $this->userLib->getAllUser();
+            $this->data["allCustomers"] = $this->customerLib->getAllCustomers();
             if ($this->request->isAJAX()) {
                 return view('admin/coustomer/landing-content', $this->data);
             }

@@ -38,8 +38,10 @@
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Phone</th>
+                                                <th>Address</th>
                                                 <th>Status</th>
                                                 <th>Created On</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody id="landing-content">
@@ -71,9 +73,9 @@
 
     <!-- OPTIONAL SCRIPTS -->
     <script type="text/javascript">
-    jQuery(function() {
-        $("#openAddPopUp").hide();
-    })
+        jQuery(function() {
+            $("#openAddPopUp").hide();
+        })
     </script>
 </body>
 

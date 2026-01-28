@@ -16,10 +16,14 @@ class OrdersLib
         $this->orderItemModel = new OrderItemModel();
     }
 
-    public function getAllOrders()
+    public function getAllOrders($custId = 0)
     {
-        $select = "id,order_ref,product_amount,shipping_amount,service_charge_amount,discount_amount,discount_name,payable_amount,shipping_zipcode,addresses,status,createdOn";
-        $cond = " AND `status`!='D' ORDER BY `createdOn`";
+        $select = "id,order_ref,product_amount,shipping_amount,service_charge_amount,discount_amount,discount_name,payable_amount,shipping_zipcode,addresses,status,order_status,createdOn";
+        $cond = "";
+        if ($custId) {
+            $cond .= " AND id_customer='$custId' ";
+        }
+        $cond .= " AND `status`!='D' ORDER BY `createdOn` DESC";
         return $this->ordersModel->find($cond, $select);
     }
 

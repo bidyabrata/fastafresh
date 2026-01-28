@@ -16,6 +16,23 @@ class CustomerLib
         $this->customerAddressModel = new CustomerAddressModel();
     }
 
+    public function getAllCustomers()
+    {
+        $cond = " AND `status`!='D' ORDER BY `createdOn` DESC";
+        return $this->customerModel->find($cond);
+    }
+
+    public function getCustomerDetailsById($customerId = 0)
+    {
+        $cond = " AND id='$customerId' AND `status`!='D' ";
+        $customer = $this->customerModel->find($cond);
+        if ($customer) {
+            return $customer[0];
+        } else {
+            return [];
+        }
+    }
+
     function getShippingAddressByCustomerId($customerId = 0)
     {
         $cond = " AND id_customer='$customerId' AND address_type='shipping' AND status='A' ";

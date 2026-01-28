@@ -34,6 +34,8 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function ($rou
 
     $routes->group('orders', ['namespace' => 'App\Controllers\Admin'], function ($routes) {
         $routes->get('/', 'Orders::index');
+        $routes->get('(:num)', 'Orders::index/$1');
+        $routes->get('details/(:num)', 'Orders::details/$1');
     });
 
     $routes->group('products', ['namespace' => 'App\Controllers\Admin'], function ($routes) {

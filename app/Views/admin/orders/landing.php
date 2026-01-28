@@ -36,16 +36,18 @@
                                         <thead>
                                             <tr>
                                                 <th>Order Ref</th>
+                                                <th>Status</th>
+                                                <th>Order Time</th>
+                                                <th>Payble Amount</th>
                                                 <th>Product Amount</th>
                                                 <th>Shipping Amount</th>
-                                                <th>Service Charge Amount</th>
+                                                <!-- <th>Service Charge Amount</th>
                                                 <th>Discount Amount</th>
-                                                <th>Discount Name</th>
-                                                <th>Payble Amount</th>
+                                                <th>Discount Name</th> -->
                                                 <th>Shipping Zipcode</th>
-                                                <th>Addresses</th>
-                                                <th>Status</th>
-                                                <th>Created On</th>
+                                                <!-- <th>Addresses</th> -->
+
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody id="landing-content">
@@ -74,12 +76,12 @@
     <!-- REQUIRED SCRIPTS -->
 
     <?php echo $script; ?>
-
+    <script type="text/javascript" src="<?php echo $assetPath; ?>js/pages/orders.js"></script>
     <!-- OPTIONAL SCRIPTS -->
     <script type="text/javascript">
-    jQuery(function() {
-        $("#openAddPopUp").hide();
-    })
+        jQuery(function() {
+            $("#openAddPopUp").hide();
+        })
     </script>
 </body>
 
