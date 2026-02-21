@@ -1,7 +1,7 @@
 <?php foreach ($allProducts as $key => $value) { ?>
     <tr>
         <td><?php echo $value['name'] . "(" . $value['id'] . ")"; ?></td>
-        <td><img src="<?php echo $uploadPath . "upload/" . $value['default_image']; ?>" alt="<?php echo $value['default_image']; ?>" width="50" height="50"></td>
+        <td><img src="<?php echo $uploadPath . "product/" . $value['default_image']; ?>" alt="<?php echo $value['default_image']; ?>" width="50" height="50"></td>
         <td><?php echo $value['cat_name'] . "(" . $value['id_default_category'] . ")"; ?></td>
         <td><?php echo $value['price']; ?></td>
         <td><?php echo $value['offer_price']; ?></td>
