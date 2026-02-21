@@ -26,7 +26,7 @@ class ProductLib
     public function getAllProductsWithDefaultCat()
     {
         $cond = " AND a.status!='D' ORDER BY a.updatedOn DESC";
-        $select = "a.id, a.name, a.price, a.offer_price,a.price_unit, a.cost_of_product, a.product_type, a.id_default_category, b.name as cat_name";
+        $select = "a.id, a.name, a.price, a.offer_price,a.price_unit, a.cost_of_product, a.product_type, a.id_default_category, a.default_image, b.name as cat_name";
         return $this->productModel->join_cond($cond, $select);
     }
 

@@ -31,6 +31,7 @@ class Product extends AdminBaseController
     public function index()
     {
         $this->data["allProducts"] = $this->productLib->getAllProductsWithDefaultCat();
+        # t($this->data["allProducts"], 1);
         if ($this->request->isAJAX()) {
             return view('admin/product/landing-content', $this->data);
         }

@@ -41,6 +41,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
+                                                <th>Image</th>
                                                 <th>Category</th>
                                                 <th>Price</th>
                                                 <th>Offer Price</th>
